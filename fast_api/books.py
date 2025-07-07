@@ -1,0 +1,30 @@
+from fastapi import FastAPI
+from pydantic import BaseModel, Field
+from uuid import UUID
+
+
+app = FastAPI()
+
+class Book(BaseModel):
+    id: UUID
+    title: str = Field(min_length = 1)
+    author: str = Field(min_length = 1, max_length = 100)
+    description: str = Field(min_length = 1, max_length = 100)
+    rating: int = Field(gt = -1, lt = 101)
+
+BOOKS = []
+
+# To create a simple get request 
+@app.get("/")
+def read_api():
+    return BOOKS
+
+@app.post("/")
+def create_book(book:Book):
+    BOOKS.append(book)
+    return book
+
+# To create a simple get request with placeholder where user can give input
+# @app.get("/{name}")
+# def read_name(name:str):
+#     return {"Hey": {name}}
