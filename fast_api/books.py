@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from uuid import UUID
 
@@ -23,6 +23,12 @@ def read_api():
 def create_book(book:Book):
     BOOKS.append(book)
     return book
+
+
+
+
+
+
 
 # To create a simple get request with placeholder where user can give input
 # @app.get("/{name}")
