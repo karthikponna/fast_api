@@ -1,0 +1,18 @@
+[project]
+name = "fast_api"
+version = "0.0.1"
+description = "Implementation of FAST API projects from scratch"
+authors = [
+    {name = "karthikponna",email = "karthikponna963@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi (>=0.115.14,<0.116.0)",
+    "uvicorn (>=0.35.0,<0.36.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
