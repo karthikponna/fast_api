@@ -27,12 +27,14 @@ def get_db():
 
 db_dependency = Annotated[Session, Depends(get_db)]
 
+# POST for posts
 @app.post("/posts/", status_code=status.HTTP_201_CREATED)
 async def create_post(post: PostBase, db: db_dependency):
     db_post = models.Post(**post.dict())
     db.add(db_post)
     db.commit()
 
+# GET for posts
 @app.get("/posts/{post_id}", status_code=status.HTTP_200_OK)
 async def read_post(post_id: int, db: db_dependency):
     post = db.query(models.Post).filter(models.Post.id == post_id).first()
@@ -40,6 +42,7 @@ async def read_post(post_id: int, db: db_dependency):
         HTTPException(status_code=404, detail='Post was not found')
     return post
 
+# DELETE for posts
 @app.delete("/posts/{post_id}", status_code=status.HTTP_200_OK)
 async def delete_post(post_id: int, db: db_dependency):
     db_post = db.query(models.Post).filter(models.Post.id == post_id).first()
@@ -48,12 +51,14 @@ async def delete_post(post_id: int, db: db_dependency):
     db.delete(db_post)
     db.commit()
 
+# POST for users
 @app.post("/users/", status_code=status.HTTP_201_CREATED)
 async def create_user(user: UserBase, db: db_dependency):
     db_user = models.User(**user.dict())
     db.add(db_user)
     db.commit()
 
+# GET for users
 @app.get("/users/{user_id}", status_code=status.HTTP_200_OK)
 async def read_user(user_id: int, db: db_dependency):
     user = db.query(models.User).filter(models.User.id == user_id).first()
