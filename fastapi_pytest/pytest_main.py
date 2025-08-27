@@ -19,6 +19,7 @@ async def read_todos():
 async def create_todo(todo:Todo):
     todo_id = str(len(todos) +1)
     todos[todo_id] = todo
+    return todo
 
 @app.get("/{todo_id}", response_model=Todo)
 async def read_todo(todo_id: str):
@@ -27,7 +28,7 @@ async def read_todo(todo_id: str):
         raise HTTPException(status_code=404, detail="To do not found")
     return todo
 
-@app.post("/{todo_id}", response_model=Todo)
+@app.put("/{todo_id}", response_model=Todo)
 async def update_todo(todo_id: str, update_todo: Todo):
     todo = todos.get(todo_id)
     if todo is None:
