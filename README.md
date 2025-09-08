@@ -4,7 +4,8 @@ FastAPI is a modern, fast (high-performance), web framework for building APIs wi
 
 This repository contains practical implementations covering the essential aspects of FastAPI development:
 
-### 📚 **Core Concepts**
+## 📚 **Core Concepts**
+
 - **Pydantic Integration**: Data validation, parsing, and serialization
 - **Database Connectivity**: Multiple database implementations
 - **Template Rendering**: Dynamic HTML generation with Jinja2
