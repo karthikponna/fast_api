@@ -8,14 +8,14 @@ This repository contains practical implementations covering the essential aspect
 
 ## **📂 Featured Implementations**
 
-*   [FastAPI with Pydantic](basics_of_pydantic)
-*   [FastAPI with Pytest](fastapi_pytest)
-*   [FastAPI with Jinja2](jinja2)
 *   [FastAPI with MongoDB](mongo_db)
 *   [FastAPI with MySQL](mysql)
 *   [FastAPI with Postgresql](postgresql)
 *   [FastAPI with Redis](redis)
 *   [FastAPI with SQLAlchemy](sqlalchemy)
+*   [FastAPI with Pydantic](basics_of_pydantic)
+*   [FastAPI with Pytest](fastapi_pytest)
+*   [FastAPI with Jinja2](jinja2)
 
 ## 📚 **Core Concepts**
 
@@ -69,4 +69,42 @@ git clone https://github.com/karthikponna/fast_api.git
 cd fast_api
 uv sync
 ```
+
+## Example
+
+Create a file `main.py` with:
+
+```Python
+from typing import Union
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}
+```
+
+### Run the server 
+
+```bash
+uvicorn main:app --reload
+```
+
+### Interactive API docs 
+
+FastAPI will handle API docs for you.
+
+Now go to <a href="http://127.0.0.1:8000/docs" class="external-link" target="_blank">http://127.0.0.1:8000/docs</a>.
+
+You will see the automatic interactive API documentation (provided by <a href="https://github.com/swagger-api/swagger-ui" class="external-link" target="_blank">Swagger UI</a>):
+
+![Swagger UI](assets/fast_api_docs.png)
 
