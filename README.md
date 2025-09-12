@@ -17,7 +17,7 @@ This repository contains practical implementations covering the essential aspect
 *   [FastAPI with Pytest](fastapi_pytest)
 *   [FastAPI with Jinja2](jinja2)
 
-## 📚 **Core Concepts**
+##  **📚 Core Concepts**
 
 - **Pydantic Integration**: Data validation, parsing, and serialization
 - **Database Connectivity**: Multiple database implementations
@@ -25,7 +25,7 @@ This repository contains practical implementations covering the essential aspect
 - **Testing**: Comprehensive API testing with pytest
 - **Modern Python**: Type hints, async/await, and best practices
 
-## 🛠️ **Tech Stack**
+## **📚 Tech Stack**
 
 - **Framework**: FastAPI
 - **Python**: 3.13+
@@ -40,12 +40,12 @@ This repository contains practical implementations covering the essential aspect
 - **Testing**: pytest 
 - **Server**: Uvicorn 
 
-## **Prerequisites**
+## **🛠️ Prerequisites**
 
 - Python 3.13 or higher
 - uv package manager 
 
-## **Installation**
+## **⚙️ Installation**
 
 1. **Install uv**:
 ```bash
@@ -61,7 +61,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 
 ```
 
-## Local Setup 👨🏼‍💻
+## **👨🏼‍💻 Local Setup**
 
 1. **Clone the repository**:
 ```bash
@@ -70,7 +70,7 @@ cd fast_api
 uv sync
 ```
 
-## Example
+## 💡 Example
 
 Create a file `main.py` with:
 
